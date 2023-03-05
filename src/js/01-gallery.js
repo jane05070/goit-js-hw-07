@@ -4,7 +4,7 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 
-const divRef = document.querySelector('.gallery');
+const divEl = document.querySelector('.gallery');
 
 function createGallaryMarkup(items) {
     return items.map((item) =>
@@ -24,9 +24,9 @@ function createGallaryMarkup(items) {
 
 const addGallaryMurkup = createGallaryMarkup(galleryItems);
 
-divRef.innerHTML = addGallaryMurkup;
+divEl.innerHTML = addGallaryMurkup;
 
-divRef.addEventListener("click", handleImageClick);
+divEl.addEventListener("click", handleImageClick);
 
 function handleImageClick(event) {
     blockStandartAction(event);
@@ -39,7 +39,7 @@ function handleImageClick(event) {
     <img src = "${event.target.dataset.source}" width = "800" height = "600">`);
     instance.show();
 
-    divRef.addEventListener("keydovn", (event) => {
+    divEl.addEventListener("keydovn", (event) => {
         if (event.code === "Escape") {
             instance.close();
         }
