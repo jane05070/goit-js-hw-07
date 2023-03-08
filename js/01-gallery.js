@@ -38,12 +38,16 @@ function handleImageClick(event) {
     const instance = basicLightbox.create(`
     <img src = "${event.target.dataset.source}" width = "800" height = "600">`);
     instance.show();
+    
+}
 
-    divEl.addEventListener("keydovn", (event) => {
-        if (event.code === "Escape") {
-            instance.close();
-        }
-    })
+const escapePushHandler = (event) => {
+    if (event.code === "Escape") {
+        instance.close();
+        document.removeEventListener('keydovn', escapePushHandler);
+        
+        
+    }
 }
 
 function blockStandartAction(event) {
